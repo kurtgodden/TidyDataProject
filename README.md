@@ -7,10 +7,15 @@ The script downloads and the operates on raw data (UCI HAR dataset) taken from e
 My task, and that of my script’s was to satisfy the following requirements:
 
 “. . . create one R script called run_analysis.R that does the following. 
+
 1. Merges the training and the test sets to create one data set.
+
 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
+
 3. Uses descriptive activity names to name the activities in the data set
+
 4. Appropriately labels the data set with descriptive variable names. 
+
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.”
 
 My interpretation of requirement 5 is that we are to compute the mean values of each of the 6 activities for every unique combination of test subject and measurement variable, e.g. test subject 1 and measurement variable tBodyAcc-mean()-X.  I also note that in the evaluation questions, the instructors state that, for the resulting tidy dataset, “Either a wide or a long form of the data is acceptable”.  
@@ -18,6 +23,7 @@ My interpretation of requirement 5 is that we are to compute the mean values of 
 Thus, I chose to create a LONG FORM whereby there are only 8 columns of data, but 2370 rows.
 
 The 8 columns are called:
+
   Subject 
   
   Variable  
