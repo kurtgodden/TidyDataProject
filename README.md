@@ -1,4 +1,4 @@
-# Tidy-Data-Project
+# Tidy Data Project
 
 This README explains at a high level how my run_analysis.R script works with the detailed description, including all code and output variables and their datatypes and units and all algorithmic descriptions, appearing in the accompanying CodeBook.md file.
 
