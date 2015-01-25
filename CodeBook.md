@@ -22,41 +22,41 @@ directory 'UCI HAR Dataset' underneath my working directory.
 
 The next code block sets pointers to each relevant raw file which I determined by reading the data's README.txt file.  Here are the variables used and the raw files they point to:
 
-trainingSetPath	         X_train.txt
+trainingSetPath	 ->   X_train.txt
 
-trainingLabelsPath       y_train.txt
+trainingLabelsPath  ->   y_train.txt
 
-trainingSubjectsPath     subject_train.txt
+trainingSubjectsPath   ->   subject_train.txt
 
-testSetPath              X_test.txt
+testSetPath   ->   X_test.txt
 
-testLabelsPath           y_test.txt
+testLabelsPath  ->   y_test.txt
 
-testSubjectsPath         subject_test.txt
+testSubjectsPath  ->   subject_test.txt
 
-activityLabelsPath       activity_labels.txt
+activityLabelsPath   ->   activity_labels.txt
 
-featuresPath             features.txt
+featuresPath   ->   features.txt
 
 These 8 path variables are then used as inputs to 8 calls to 'read.table()’
 which reads each file into a raw data variable.  Here are the raw data variables 
 and the raw data files whose contents are read into those variables:
 
-trainingRawData 		X_train.txt
+trainingRawData    ->   X_train.txt
 
-trainingRawLabels		y_train.txt
+trainingRawLabels   ->   y_train.txt
 
-trainingRawSubjects 		subject_train.txt
+trainingRawSubjects   ->   subject_train.txt
 
-testRawData			X_test.txt
+testRawData   ->   X_test.txt
 
-testRawLabels 			y_test.txt
+testRawLabels   ->   y_test.txt
 
-testRawSubjects 		subject_test.txt
+testRawSubjects   ->   subject_test.txt
 
-activityLabelsMap		activity_labels.txt
+activityLabelsMap   ->   activity_labels.txt
 
-allFeatures 			features.txt
+allFeatures   ->   features.txt
 
 Code comments include the dimensions of each resulting dataframe which I manually obtained by calling 'dim()' on each raw data variable.
 ### Block 3
@@ -74,6 +74,7 @@ meansStdsColNames	is the variable with the vector of column (variable) names.
 Here are the 79 raw variables extracted from the full set of 561:
 
 > meansStdsColNames
+
  [1] "tBodyAcc-mean()-X"               "tBodyAcc-mean()-Y"               "tBodyAcc-mean()-Z"              
  [4] "tBodyAcc-std()-X"                "tBodyAcc-std()-Y"                "tBodyAcc-std()-Z"               
  [7] "tGravityAcc-mean()-X"            "tGravityAcc-mean()-Y"            "tGravityAcc-mean()-Z"           
@@ -140,7 +141,9 @@ e.g. fBodyAccJerk-meanFreq()-X
 The resulting vector of more readable column names are stored in variable 'meansStdsColNamesReadable'. 
 
 Here is its value with all 79 transformed variable names:
+
 > meansStdsColNamesReadable
+
  [1] "timeBodyAccelerationMeanX"                          "timeBodyAccelerationMeanY"                         
  [3] "timeBodyAccelerationMeanZ"                          "timeBodyAccelerationStDevX"                        
  [5] "timeBodyAccelerationStDevY"                         "timeBodyAccelerationStDevZ"                        
@@ -305,68 +308,54 @@ This tidy dataset has 8 columns:
 
 Here are the data types and descriptions of each column of data:
 
-Subject:			integer, from 1:30 representing a person
+Subject: integer, from 1:30 representing a person
 
-Variable:			string, a more readable version of the 79 raw data
-				variables of interest, viz. any variable representing
-				either a mean or a standard deviation in the raw dataset.
+Variable: string, a more readable version of the 79 raw data variables of interest, viz. any variable representing either a mean or a standard deviation in the raw dataset.
 
-LayingMean:			floating point, representing the mean value of a set
-				numeric values for the activity of laying for the
-				combination of Subject and Variable
+LayingMean:  floating point, representing the mean value of a set numeric values for the activity of laying for the combination of Subject and Variable
 
-SittingMean:			floating point, representing the mean value of a set
-				numeric values for the activity of sitting for the
-				combination of Subject and Variable
+SittingMean:  floating point, representing the mean value of a set numeric values for the activity of sitting for the combination of Subject and Variable
 
-StandingMean:			floating point, representing the mean value of a set
-				numeric values for the activity of standing for the
-				combination of Subject and Variable
+StandingMean:  floating point, representing the mean value of a set numeric values for the activity of standing for the combination of Subject and Variable
 
-WalkingMean:			floating point, representing the mean value of a set
-				numeric values for the activity of walking for the
-				combination of Subject and Variable
+WalkingMean:  floating point, representing the mean value of a set numeric values for the activity of walking for the combination of Subject and Variable
 
-WalkingDownstairsMean:	floating point, representing the mean value of a set
-				numeric values for the activity of walking downstairs
-	 			for the combination of Subject and Variable
+WalkingDownstairsMean:	floating point, representing the mean value of a set numeric values for the activity of walking downstairs for the combination of Subject and Variable
 
-WalkingUpstairsMean:		floating point, representing the mean value of a set
-				numeric values for the activity of walking upstairs
-	 			for the combination of Subject and Variable
+WalkingUpstairsMean:  floating point, representing the mean value of a set numeric values for the activity of walking upstairs for the combination of Subject and Variable
 
 The units of these activity means depend upon the units of the raw dataset measurement variables, which are explained in that source dataset’s README file.  For our 79 measurement variables of interest, here are their units:
 
 All of the activity means have mean values of standard gravity units for rows that have the following in the Variable column:
 
-"timeBodyAccelerationMeanX"                          
-"timeBodyAccelerationMeanY"                         
-"timeBodyAccelerationMeanZ"                                                 
-"timeGravityAccelerationMeanX"                       
-"timeGravityAccelerationMeanY"                      
-"timeGravityAccelerationMeanZ"                                           
-"timeBodyAccelerationJerkMeanX"                      
-"timeBodyAccelerationJerkMeanY"                     
-"timeBodyAccelerationJerkMeanZ"                         
-"timeBodyAccelerationMagnitudeMean"                                 
-"timeGravityAccelerationMagnitudeMean"                            
-"timeBodyAccelerationJerkMagnitudeMean"                
-"frequencyBodyAccelerationMeanX"                     
-"frequencyBodyAccelerationMeanY"                    
-"frequencyBodyAccelerationMeanZ"                                       
-"frequencyBodyAccelerationMeanFreqX"                 
-"frequencyBodyAccelerationMeanFreqY"                
-"frequencyBodyAccelerationMeanFreqZ"                 
-"frequencyBodyAccelerationJerkMeanX"                
-"frequencyBodyAccelerationJerkMeanY"                 
-"frequencyBodyAccelerationJerkMeanZ"                
-"frequencyBodyAccelerationJerkMeanFreqX"            
-"frequencyBodyAccelerationJerkMeanFreqY"             
-"frequencyBodyAccelerationJerkMeanFreqZ" 
-"frequencyBodyAccelerationMagnitudeMean"            
-"frequencyBodyAccelerationMagnitudeMeanFreq"        
-"frequencyBodyBodyAccelerationJerkMagnitudeMean"        
-"frequencyBodyBodyAccelerationJerkMagnitudeMeanFreq" 
+   "timeBodyAccelerationMeanX"                          
+   "timeBodyAccelerationMeanY"                         
+   "timeBodyAccelerationMeanZ"                                                 
+   "timeGravityAccelerationMeanX"                       
+   "timeGravityAccelerationMeanY"                      
+   "timeGravityAccelerationMeanZ"                                           
+   "timeBodyAccelerationJerkMeanX"                      
+   "timeBodyAccelerationJerkMeanY"                     
+   "timeBodyAccelerationJerkMeanZ"                         
+   "timeBodyAccelerationMagnitudeMean"                                 
+   "timeGravityAccelerationMagnitudeMean"                            
+   "timeBodyAccelerationJerkMagnitudeMean"                
+   "frequencyBodyAccelerationMeanX"                     
+   "frequencyBodyAccelerationMeanY"                    
+   "frequencyBodyAccelerationMeanZ"                                       
+   "frequencyBodyAccelerationMeanFreqX"                 
+   "frequencyBodyAccelerationMeanFreqY"                
+   "frequencyBodyAccelerationMeanFreqZ"                 
+   "frequencyBodyAccelerationJerkMeanX"                
+   "frequencyBodyAccelerationJerkMeanY"                 
+   "frequencyBodyAccelerationJerkMeanZ"                
+   "frequencyBodyAccelerationJerkMeanFreqX"            
+   "frequencyBodyAccelerationJerkMeanFreqY"             
+   "frequencyBodyAccelerationJerkMeanFreqZ" 
+   "frequencyBodyAccelerationMagnitudeMean"            
+   "frequencyBodyAccelerationMagnitudeMeanFreq"        
+   "frequencyBodyBodyAccelerationJerkMagnitudeMean"        
+   "frequencyBodyBodyAccelerationJerkMagnitudeMeanFreq" 
 
 All of the activity means have mean values of standard deviations of standard gravity units for rows that have the following in the Variable column:
 
