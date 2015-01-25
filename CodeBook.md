@@ -8,7 +8,7 @@ e.g. the first such code block is indicated by:
 ########################################################  
 
 What follows is now a description of each such code block.
-##########################################################
+################### Block 1 ############################
 
 Block 1. The script begins by downloading the raw data 
 
@@ -20,7 +20,7 @@ The date/time of the download was obtained by using date(), which returned a val
 
 R function ‘unzip()’ is used to extract all the raw data files into 
 directory 'UCI HAR Dataset' underneath my working directory.
-##########################################################
+################### Block 2 ############################
 
 Block 2.  The next code block sets pointers to each relevant raw file which I determined 
 by reading the data's README.txt file.  Here are the variables used and the raw files they point to:
@@ -49,7 +49,7 @@ allFeatures 			features.txt
 
 Code comments include the dimensions of each resulting dataframe which I manually
 obtained by calling 'dim()' on each raw data variable.
-##########################################################
+################### Block 3 ############################
 
 Block 3.  The next code block subsets the raw training and test data, extracting only 
     the raw data variables of interest, and gives these subsets 
@@ -175,7 +175,7 @@ trainingDataMeansStds and testDataMeansStds, respectively.
 
 Using the function 'colnames()’, we then provide the more readable column names
 to each of those subsets.
-##########################################################
+################### Block 4 ############################
 
 Block 4.  This code block merges the training and test datasets and also adds
     the two columns for (human) 'Subject' and 'Activity'.
@@ -215,7 +215,7 @@ At this point, we have completed the first 4 instructions for the project:
 #     for each measurement. 
 # 3.  Uses descriptive activity names to name the activities in the data set
 # 4.  Appropriately labels the data set with descriptive variable names. 
-##########################################################
+################### Block 5 ############################
 
 Block 5.  The final code block does the heavy lifting of computing the mean of each
     combination of subject with technical variable, and then writes the resulting
