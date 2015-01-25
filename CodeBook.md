@@ -285,9 +285,13 @@ as factors, so that 'mean' will be computed 6 times, once for each of the collec
 values of the first argument that all have the same Activity value.
 
 tapply returns an array of the form:
+            
             LAYING            SITTING           STANDING            WALKING WALKING_DOWNSTAIRS 
+         
          0.2215982          0.2612376          0.2789176          0.2773308          0.2891883 
+  
   WALKING_UPSTAIRS 
+         
          0.2554617
 and saves it into the variable tmpArray, which is then converted to a list.
 
