@@ -8,7 +8,7 @@ e.g. the first such code block is indicated by:
 ########################################################  
 
 What follows is now a description of each such code block.
-################### Block 1 ############################
+## Block 1 
 
 Block 1. The script begins by downloading the raw data 
 
