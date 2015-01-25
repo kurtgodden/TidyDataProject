@@ -22,21 +22,21 @@ directory 'UCI HAR Dataset' underneath my working directory.
 
 The next code block sets pointers to each relevant raw file which I determined by reading the data's README.txt file.  Here are the variables used and the raw files they point to:
 
-trainingSetPath				X_train.txt
+trainingSetPath	         X_train.txt
 
-trainingLabelsPath 			y_train.txt
+trainingLabelsPath       y_train.txt
 
-trainingSubjectsPath 			subject_train.txt
+trainingSubjectsPath     subject_train.txt
 
-testSetPath 				X_test.txt
+testSetPath              X_test.txt
 
-testLabelsPath 				y_test.txt
+testLabelsPath           y_test.txt
 
-testSubjectsPath 			subject_test.txt
+testSubjectsPath         subject_test.txt
 
-activityLabelsPath 			activity_labels.txt
+activityLabelsPath       activity_labels.txt
 
-featuresPath 				features.txt
+featuresPath             features.txt
 
 These 8 path variables are then used as inputs to 8 calls to 'read.table()’
 which reads each file into a raw data variable.  Here are the raw data variables 
