@@ -100,14 +100,23 @@ from meansStdsColNames into a more descriptive column name that will be used
 in the final tidy data set.
 
 These 'gsub' calls perform the following:
+  
   a. Convert all occurrences of '-mean()' to 'Mean'
+  
   b. Convert all occurrences of '-std()' to 'StdDev'
+  
   c. Convert all occurrences of '-meanFreq()' to 'MeanFreq'
+  
   d. Convert all occurrences of 'Acc' to 'Acceleration'
+  
   e. Convert all occurrences of 'Gyro' to 'Gyroscope'
+  
   f. Convert all occurrences of 'Mag' to 'Magnitude'
+  
   g. Delete all remaining occurrences of '-'
+  
   h. Convert all prefix occurrences of 't' to 'time'
+  
   i. Convert all prefix occurrences of 'f' to 'frequency'
 
 One example of a raw column name transformation would be:
