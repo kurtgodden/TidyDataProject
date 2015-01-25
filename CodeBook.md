@@ -100,15 +100,15 @@ from meansStdsColNames into a more descriptive column name that will be used
 in the final tidy data set.
 
 These 'gsub' calls perform the following:
-	a. Convert all occurrences of '-mean()' to 'Mean'
-	b. Convert all occurrences of '-std()' to 'StdDev'
-	c. Convert all occurrences of '-meanFreq()' to 'MeanFreq'
-	d. Convert all occurrences of 'Acc' to 'Acceleration'
-	e. Convert all occurrences of 'Gyro' to 'Gyroscope'
-	f. Convert all occurrences of 'Mag' to 'Magnitude'
-	g. Delete all remaining occurrences of '-'
-	h. Convert all prefix occurrences of 't' to 'time'
-	i. Convert all prefix occurrences of 'f' to 'frequency'
+  a. Convert all occurrences of '-mean()' to 'Mean'
+  b. Convert all occurrences of '-std()' to 'StdDev'
+  c. Convert all occurrences of '-meanFreq()' to 'MeanFreq'
+  d. Convert all occurrences of 'Acc' to 'Acceleration'
+  e. Convert all occurrences of 'Gyro' to 'Gyroscope'
+  f. Convert all occurrences of 'Mag' to 'Magnitude'
+  g. Delete all remaining occurrences of '-'
+  h. Convert all prefix occurrences of 't' to 'time'
+  i. Convert all prefix occurrences of 'f' to 'frequency'
 
 One example of a raw column name transformation would be:
 tBodyAcc-mean()-X
@@ -210,11 +210,11 @@ which contains 81 columns: Subject, Activity, and the 79 columns listed above
 of technical variables relating to means and standard deviations.
 
 At this point, we have completed the first 4 instructions for the project:
-# 1.  Merges the training and the test sets to create one data set.
-# 2.  Extracts only the measurements on the mean and standard deviation 
-#     for each measurement. 
-# 3.  Uses descriptive activity names to name the activities in the data set
-# 4.  Appropriately labels the data set with descriptive variable names. 
+1.  Merges the training and the test sets to create one data set. 
+2.  Extracts only the measurements on the mean and standard deviation 
+    for each measurement. 
+3.  Uses descriptive activity names to name the activities in the data set
+4.  Appropriately labels the data set with descriptive variable names. 
 ################### Block 5 ############################
 
 Block 5.  The final code block does the heavy lifting of computing the mean of each
@@ -228,7 +228,7 @@ at the end of code block 4.  This ‘computeVarMeans’ function operates as fol
 The general idea is to begin with an 'empty' dataframe called 'intermediateDF'
 of NA values for each of the 6 activities, i.e. LAYING, SITTING, STANDING, 
 WALKING, WALKING_DOWNSTAIRS and WALKING_UPSTAIRS.  We will compute the means 
-for each of these activities and then use 'rbind()’ to incrementally add 
+for each of these activities and then use 'rbind()' to incrementally add 
 each row as it is computed.  
 
 Since there are 30 subjects and 79 technical variables, we expect to compute 
@@ -283,7 +283,7 @@ tapply returns an array of the form:
 and saves it into the variable tmpArray, which is then converted to a list.
 
 We convert it to a list because we want to then convert that to a dataframe
-for use in the function 'rbind()’ where we incrementally build, row by row,
+for use in the function 'rbind()' where we incrementally build, row by row,
 the dataframe in intermediateDF that was described above.  
 
 After ‘rbind()’ adds that new row of data to intermediateDF, we similarly add the 
@@ -293,7 +293,7 @@ of rows in intermediateDF.
 
 The double looping in function computeVarMeans continues until we drop out of
 the loops with the prefinal value of intermediateDF.  To finalize it, 
-we have to add varVector and subjectVector as new columns using 'cbind()’.
+we have to add varVector and subjectVector as new columns using 'cbind()'.
 
 From that resulting dataframe, we need to delete the first row of 
 NA values from all columns, using ‘complete.cases() followed by a subset
@@ -311,10 +311,10 @@ The return value of the function is the now final ‘intermediateDF’.
 
 The function described above is invoked by the command 
 ‘computeVarMeans(mergedDataAll)’ and its value is saved in the script 
-variable 'tidyData’.
+variable 'tidyData'.
 
 The final action of the script is to write out tidyData to an external file
-called 'MyTidyData.txt' using 'write.table' with ‘row.names=FALSE’, per
+called 'MyTidyData.txt' using 'write.table' with 'row.names=FALSE', per
 the instructions for the project.  This external file was uploaded for the project,
 also per instructions.
 
