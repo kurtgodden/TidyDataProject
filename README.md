@@ -2,7 +2,7 @@
 
 This README explains at a high level how my run_analysis.R script works. A more detailed description. including all code, all output variables and their datatypes and units and all algorithmic descriptions appear in the accompanying CodeBook.md file.
 
-The script downloads and the operates on raw data (UCI HAR dataset) taken from experiments from a group of human subjects designated only by the integers 1-30.  Each person wore a Samsung Galaxy S II smartphone on their waist, and data from the phone’s accelerometer and gyroscope sensors were obtained and processed while the subject engaged in six activities: Laying, Sitting, Standing, Walking Downstairs and Walking Upstairs.  The training and test datasets both contained 561 variables.
+The script downloads and the operates on raw data (UCI HAR dataset) taken from experiments from a group of human subjects designated only by the integers 1-30.  Each person wore a Samsung Galaxy S II smartphone on their waist, and data from the phone’s accelerometer and gyroscope sensors were obtained and processed while the subject engaged in six activities: Laying, Sitting, Standing, Walking, Walking Downstairs and Walking Upstairs.  The training and test datasets both contained 561 variables.
 
 My task, and that of my script’s was to satisfy the following requirements:
 
@@ -19,13 +19,21 @@ Thus, I chose to create a LONG FORM whereby there are only 8 columns of data, bu
 
 The 8 columns are called:
   Subject 
+  
   Variable  
+  
   LayingMean  
+  
   SittingMean 
+  
   StandingMean 
+  
   WalkingMean 
+  
   WalkingDownstairsMean  
+  
   WalkingUpstairsMean
+  
 
 and each row represents one observation for a unique combination of one of the 30 test Subjects and one of the 79 measurement variables that refer to data means or standard deviations, as stated in requirement #2 above.  We expect 2370 rows of data because that is the number of unique combinations of subjects and measurement variables, i.e. 30 * 79 = 2370
 
